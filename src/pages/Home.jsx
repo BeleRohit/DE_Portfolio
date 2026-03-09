@@ -33,6 +33,7 @@ const Home = () => {
                             </motion.div>
 
                             <motion.h1 variants={fadeUp} style={{ fontSize: 'clamp(3rem, 5vw, 4.5rem)', marginBottom: '1.5rem', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+                                <span style={{ display: 'block', fontSize: '1.25rem', fontFamily: "'JetBrains Mono', monospace", color: 'var(--highlight)', marginBottom: '1rem', fontWeight: 400, letterSpacing: 'normal' }}>Hi, I'm Rohit Bele.</span>
                                 Data Engineer.<br />
                                 AI Builder.<br />
                                 Open Source Mind.
