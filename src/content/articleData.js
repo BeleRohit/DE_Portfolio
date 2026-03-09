@@ -1,7 +1,7 @@
 export const articleMetadata = {
     "multilingual-voice-assistant": {
         title: "How I built a multilingual voice assistant in a weekend",
-        date: "October 24, 2023",
+        date: "October 24, 2025",
         tag: "AI / Product",
         file: "multilingual_voice_assistant.md"
     },

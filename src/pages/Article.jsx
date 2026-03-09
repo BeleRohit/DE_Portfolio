@@ -25,13 +25,20 @@ const Article = () => {
         }
 
         if (meta.file) {
-            // Vite requires the extension and constant part to be statically analyzable
-            // So we use the static prefix and the exact extension at the end of the template literal.
+            // Safely loading dynamic strings in Vite requires import.meta.glob pointing to the exact directory
+            const markdownModules = import.meta.glob('../content/articles/*.md', { query: '?raw', import: 'default' });
+
             const loadMarkdown = async () => {
                 try {
-                    // Using standard Vite asset import
-                    const markdownFile = await import(`../content/articles/${slug}.md?raw`);
-                    setContent(markdownFile.default);
+                    const targetPath = `../content/articles/${meta.file}`;
+
+                    if (targetPath in markdownModules) {
+                        const markdownContent = await markdownModules[targetPath]();
+                        setContent(markdownContent);
+                    } else {
+                        console.error(`Article file not found in build: ${targetPath}`);
+                        setContent("# Error\n\nWe couldn't locate this article.");
+                    }
                 } catch (error) {
                     console.error("Failed to load article:", error);
                     setContent("# Error\n\nFailed to load this article.");
