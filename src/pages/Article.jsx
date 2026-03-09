@@ -9,6 +9,9 @@ import PageTransition from '../components/PageTransition';
 // Our central data source
 import { articleMetadata } from '../content/articleData';
 
+// Map all local images so Vite bundles them and we can resolve dynamic markdown image sources
+const imageModules = import.meta.glob('../content/images/*.{png,jpg,jpeg,svg,gif,webp}', { eager: true, import: 'default' });
+
 const Article = () => {
     const { slug } = useParams();
     const navigate = useNavigate();
@@ -99,7 +102,24 @@ const Article = () => {
                                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.2 }}
                                 className="markdown-body"
                             >
-                                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                                <ReactMarkdown
+                                    remarkPlugins={[remarkGfm]}
+                                    components={{
+                                        img: ({ node, ...props }) => {
+                                            let imageSrc = props.src;
+                                            if (imageSrc) {
+                                                // Extract just the filename so it works regardless of how they typed the relative path
+                                                const filename = imageSrc.split('/').pop();
+                                                const globKey = `../content/images/${filename}`;
+
+                                                if (imageModules[globKey]) {
+                                                    imageSrc = imageModules[globKey];
+                                                }
+                                            }
+                                            return <img {...props} src={imageSrc} style={{ maxWidth: '100%', height: 'auto', borderRadius: '0.5rem', margin: '2rem 0', border: '1px solid var(--border-soft)' }} alt={props.alt || 'Article Image'} loading="lazy" />
+                                        }
+                                    }}
+                                >
                                     {content}
                                 </ReactMarkdown>
                             </motion.div>
