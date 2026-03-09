@@ -54,9 +54,10 @@ const Footer = () => {
                         <p style={{ fontSize: '0.875rem', marginBottom: '1.5rem' }}>
                             I write occasionally about data pipelines, AI products, and building in public. Join if that sounds interesting.
                         </p>
-                        <form style={{ display: 'flex', gap: '0.5rem' }} onSubmit={(e) => e.preventDefault()}>
+                        <form action="https://formspree.io/f/xjgagyld" method="POST" style={{ display: 'flex', gap: '0.5rem' }}>
                             <input
                                 type="email"
+                                name="_replyto"
                                 placeholder="Email address"
                                 style={{
                                     flex: 1,

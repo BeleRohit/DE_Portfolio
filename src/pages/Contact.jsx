@@ -14,21 +14,6 @@ const staggerContainer = {
 };
 
 const Contact = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-    });
-
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        alert("This is a demo contact form. In a real app, this would send an email.");
-    };
 
     return (
         <PageTransition>
@@ -82,12 +67,12 @@ const Contact = () => {
 
                         {/* Right Column: Form */}
                         <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.4 }}>
-                            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                            <form action="https://formspree.io/f/xjgagyld" method="POST" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
 
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                                     <label htmlFor="name" style={{ fontSize: '0.875rem', fontWeight: 500, color: 'var(--text-accent)' }}>Name *</label>
                                     <input
-                                        type="text" id="name" name="name" required value={formData.name} onChange={handleChange}
+                                        type="text" id="name" name="name" required
                                         style={{ padding: '1rem', borderRadius: '0.5rem', border: '1px solid var(--border-soft)', backgroundColor: 'var(--bg-primary)', fontFamily: 'inherit', outline: 'none' }}
                                     />
                                 </div>
@@ -95,7 +80,7 @@ const Contact = () => {
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                                     <label htmlFor="email" style={{ fontSize: '0.875rem', fontWeight: 500, color: 'var(--text-accent)' }}>Email *</label>
                                     <input
-                                        type="email" id="email" name="email" required value={formData.email} onChange={handleChange}
+                                        type="email" id="_replyto" name="_replyto" required
                                         style={{ padding: '1rem', borderRadius: '0.5rem', border: '1px solid var(--border-soft)', backgroundColor: 'var(--bg-primary)', fontFamily: 'inherit', outline: 'none' }}
                                     />
                                 </div>
@@ -103,7 +88,7 @@ const Contact = () => {
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                                     <label htmlFor="subject" style={{ fontSize: '0.875rem', fontWeight: 500, color: 'var(--text-accent)' }}>What's this about?</label>
                                     <select
-                                        id="subject" name="subject" value={formData.subject} onChange={handleChange}
+                                        id="subject" name="subject" defaultValue=""
                                         style={{ padding: '1rem', borderRadius: '0.5rem', border: '1px solid var(--border-soft)', backgroundColor: 'var(--bg-primary)', fontFamily: 'inherit', outline: 'none', appearance: 'none' }}
                                     >
                                         <option value="" disabled>Select an option</option>
@@ -117,7 +102,7 @@ const Contact = () => {
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                                     <label htmlFor="message" style={{ fontSize: '0.875rem', fontWeight: 500, color: 'var(--text-accent)' }}>Message *</label>
                                     <textarea
-                                        id="message" name="message" required rows={6} value={formData.message} onChange={handleChange}
+                                        id="message" name="message" required rows={6}
                                         style={{ padding: '1rem', borderRadius: '0.5rem', border: '1px solid var(--border-soft)', backgroundColor: 'var(--bg-primary)', fontFamily: 'inherit', outline: 'none', resize: 'vertical' }}
                                     />
                                 </div>

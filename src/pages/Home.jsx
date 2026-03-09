@@ -38,9 +38,18 @@ const Home = () => {
                                 Open Source Mind.
                             </motion.h1>
 
-                            <motion.p variants={fadeUp} style={{ fontSize: '1.125rem', marginBottom: '2.5rem', maxWidth: '480px' }}>
-                                I design and ship data systems and AI products that solve real problems — from healthcare pipelines processing millions of records to voice assistants that speak in your language.
+                            <motion.p variants={fadeUp} style={{ fontSize: '1.25rem', marginBottom: '2.5rem', maxWidth: '520px', lineHeight: 1.5, color: 'var(--text-accent)' }}>
+                                I turn messy healthcare data into clean pipelines, and blank pages into shipped AI products.
                             </motion.p>
+
+                            <motion.div variants={fadeUp} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '3rem' }}>
+                                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem', padding: '0.5rem 1rem', backgroundColor: 'var(--bg-surface)', borderRadius: '99px', border: '1px solid var(--border-soft)' }}>
+                                    <span style={{ fontSize: '0.875rem', fontWeight: 500 }}>Currently Data Engineer at <strong style={{ color: 'url(#gradient) || #006eb6' }}>EVERSANA</strong></span>
+                                </div>
+                                <a href="https://linkedin.com/in/belerohit" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '36px', height: '36px', backgroundColor: '#0A66C2', color: 'white', borderRadius: '50%' }}>
+                                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                </a>
+                            </motion.div>
 
                             <motion.div variants={fadeUp} style={{ gap: '1rem', display: 'flex', flexWrap: 'wrap' }}>
                                 <Link to="/projects" className="btn btn-primary">
@@ -185,6 +194,30 @@ const Home = () => {
                             "I believe the best data products are invisible — they just work, and they make someone's job easier."
                         </h2>
                         <p style={{ fontSize: '1rem', color: 'var(--text-subtle)' }}>— Rohit Bele, Data Engineer & Builder</p>
+                    </motion.div>
+
+                    {/* Testimonial / Social Proof */}
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} style={{ maxWidth: '800px', margin: '4rem auto 0', padding: '2.5rem', backgroundColor: 'var(--bg-primary)', borderRadius: '1rem', border: '1px solid var(--border-soft)', textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '1.5rem', position: 'relative' }}>
+                        {/* Decorative Quote Icon */}
+                        <div style={{ position: 'absolute', top: '-1.5rem', left: '2rem', backgroundColor: 'var(--bg-surface)', padding: '0.5rem', borderRadius: '50%', color: 'var(--text-accent)', border: '1px solid var(--border-soft)' }}>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" fill="currentColor" />
+                            </svg>
+                        </div>
+
+                        <p style={{ fontSize: '1.125rem', lineHeight: 1.6, color: 'var(--text-body)', fontStyle: 'italic', zIndex: 1, marginTop: '1rem' }}>
+                            "Rohit is an exceptional builder who consistently ships high-quality systems. His ability to understand complex data and translate it into reliable pipelines has been invaluable. He operates with a product mindset, not just a purely technical one."
+                        </p>
+
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', borderTop: '1px solid var(--border-soft)', paddingTop: '1.5rem' }}>
+                            <div style={{ width: '48px', height: '48px', borderRadius: '50%', backgroundColor: 'var(--border-soft)', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-subtle)', fontWeight: 'bold' }}>
+                                JD
+                            </div>
+                            <div>
+                                <h4 style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-accent)' }}>John Doe</h4>
+                                <p style={{ fontSize: '0.875rem', color: 'var(--text-body)' }}>Engineering Manager / Colleague</p>
+                            </div>
+                        </div>
                     </motion.div>
                 </div>
             </section>

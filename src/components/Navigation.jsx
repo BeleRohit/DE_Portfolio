@@ -74,7 +74,7 @@ const Navigation = () => {
                                 {link.name}
                             </NavLink>
                         ))}
-                        <Link to="/contact" className="pill pill-highlight hover:bg-highlight hover:text-white transition-all shadow-sm hover:shadow-md" style={{
+                        <Link to="/contact" className="pill pill-highlight hover:bg-highlight hover:text-white transition-all shadow-sm hover:shadow-md animate-pulse-soft" style={{
                             borderColor: 'var(--highlight)',
                             color: 'var(--highlight)',
                             fontWeight: 500,
