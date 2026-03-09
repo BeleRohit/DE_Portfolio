@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, BookOpen, FileText } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
+import { articleMetadata } from '../content/articleData';
 
 const fadeUp = {
     hidden: { opacity: 0, y: 30 },
@@ -24,28 +26,11 @@ const Writing = () => {
         }
     ];
 
-    const articles = [
-        {
-            title: "How I built a multilingual voice assistant in a weekend",
-            date: "Coming Soon",
-            tag: "AI / Product"
-        },
-        {
-            title: "30% faster pipelines: what I learned from healthcare data engineering",
-            date: "Coming Soon",
-            tag: "Data Engineering"
-        },
-        {
-            title: "Generative art with your hands: a MediaPipe tutorial",
-            date: "Coming Soon",
-            tag: "Creative Coding"
-        },
-        {
-            title: "What ATS scoring systems actually look for (built one to find out)",
-            date: "Coming Soon",
-            tag: "LLMs / Career"
-        }
-    ];
+    // Convert the object metadata to a mapped array for rendering
+    const articles = Object.keys(articleMetadata).map(slug => ({
+        slug,
+        ...articleMetadata[slug]
+    }));
 
     return (
         <PageTransition>
@@ -101,7 +86,7 @@ const Writing = () => {
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                         {articles.map((article, idx) => (
                             <motion.div
-                                key={idx}
+                                key={article.slug}
                                 initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { delay: idx * 0.1, duration: 0.5 } } }}
                                 className="card-hover"
                                 style={{
@@ -113,8 +98,7 @@ const Writing = () => {
                                     padding: '2rem',
                                     borderRadius: '1rem',
                                     backgroundColor: 'var(--bg-surface)',
-                                    border: '1px solid var(--border-soft)',
-                                    cursor: 'pointer'
+                                    border: '1px solid var(--border-soft)'
                                 }}
                             >
                                 <div style={{ flex: '1 1 300px' }}>
@@ -123,9 +107,15 @@ const Writing = () => {
                                 </div>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', color: 'var(--text-subtle)' }}>
                                     <span className="font-mono" style={{ fontSize: '0.875rem' }}>{article.date}</span>
-                                    <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'var(--bg-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--border-soft)' }}>
-                                        <ArrowRight size={18} color="var(--text-accent)" />
-                                    </div>
+                                    {article.file ? (
+                                        <Link to={`/writing/${article.slug}`} style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'var(--bg-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--border-soft)' }}>
+                                            <ArrowRight size={18} color="var(--text-accent)" />
+                                        </Link>
+                                    ) : (
+                                        <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'var(--bg-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--border-soft)', opacity: 0.5 }}>
+                                            <ArrowRight size={18} color="var(--text-subtle)" />
+                                        </div>
+                                    )}
                                 </div>
                             </motion.div>
                         ))}
