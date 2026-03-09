@@ -36,7 +36,7 @@ const Projects = () => {
             desc: "A production-ready LLM application that parses resumes and job descriptions to deliver ATS compatibility scoring, skill gap identification, and personalized improvement recommendations.\n\nBuilt with: React frontend, FastAPI backend, LLM inference layer, per-user session management, passwordless auth, and usage limits. Tracks job applications and aggregates skill gap analyses across roles.",
             links: [
                 { label: "View Live", url: "https://resume-job-match-ai.vercel.app/", icon: <ExternalLink size={16} /> },
-                { label: "GitHub", url: "#", icon: <Github size={16} /> }
+                { label: "GitHub", url: "https://github.com/BeleRohit/resume-job-match-ai", icon: <Github size={16} /> }
             ]
         },
         {
@@ -48,7 +48,7 @@ const Projects = () => {
             desc: "End-to-end voice pipeline with zero form-based interaction, supporting multiple Indian languages. Architecture chains STT → LLM → TTS with minimal latency. Solved cross-browser MediaRecorder inconsistencies in production. Sarvam AI APIs power the language models.",
             links: [
                 { label: "View Live Demo", url: "https://lnkd.in/dfRiW7gN", icon: <ExternalLink size={16} /> },
-                { label: "GitHub", url: "#", icon: <Github size={16} /> }
+                { label: "GitHub", url: "https://github.com/BeleRohit/voice-public-service-navigator", icon: <Github size={16} /> }
             ]
         },
         {
@@ -60,18 +60,7 @@ const Projects = () => {
             desc: "Browser-based interactive graphics web app with three visual modes: Particles, Waves, and Ink Diffusion — all controlled by hand gestures via MediaPipe Hands. Currently extending with FaceMesh integration and cinematic CGI effects.",
             links: [
                 { label: "View Live", url: "https://hand-tracking-ecru.vercel.app/", icon: <ExternalLink size={16} /> },
-                { label: "GitHub", url: "#", icon: <Github size={16} /> }
-            ]
-        },
-        {
-            title: "Predictive Maintenance ML System",
-            stack: "Python · scikit-learn · Feature Eng. · Deep Learning",
-            status: "Research Published",
-            statusHighlight: true,
-            tags: ["ML", "IoT", "Industrial", "Research"],
-            desc: "ML models achieving 90% accuracy in equipment failure prediction. Designed feature transformation pipelines for sensor data at scale. Work conducted during upGrad internship and published as research.",
-            links: [
-                { label: "Read Paper", url: "#", icon: <ExternalLink size={16} /> }
+                { label: "GitHub", url: "https://github.com/BeleRohit/hand-tracking", icon: <Github size={16} /> }
             ]
         }
     ];

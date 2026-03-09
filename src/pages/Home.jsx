@@ -272,9 +272,12 @@ const Home = () => {
                                 <p style={{ marginBottom: '2rem' }}>
                                     An LLM-powered application that parses resumes and job descriptions to deliver ATS scoring, skill gap analysis, and tailored career advice. Built with React + FastAPI + cloud backend.
                                 </p>
-                                <div>
+                                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                                     <a href="https://resume-job-match-ai.vercel.app/" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ padding: '0.5rem 1.25rem', fontSize: '0.875rem' }}>
                                         View Project <ArrowRight size={16} style={{ marginLeft: '0.5rem' }} />
+                                    </a>
+                                    <a href="https://github.com/BeleRohit/resume-job-match-ai" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ padding: '0.5rem 1.25rem', fontSize: '0.875rem', borderColor: 'transparent', backgroundColor: 'var(--bg-primary)' }}>
+                                        GitHub <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '0.5rem' }}><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                                     </a>
                                 </div>
                             </div>
@@ -299,10 +302,13 @@ const Home = () => {
                                 <p style={{ marginBottom: '2rem' }}>
                                     End-to-end voice pipeline: Speech → STT → LLM → TTS. Supports multiple Indian languages with zero form-based interaction. Architecture: React → FastAPI → Sarvam AI APIs.
                                 </p>
-                                <div>
-                                    <Link to="/projects" className="btn btn-outline" style={{ padding: '0.5rem 1.25rem', fontSize: '0.875rem' }}>
+                                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                                    <a href="https://lnkd.in/dfRiW7gN" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ padding: '0.5rem 1.25rem', fontSize: '0.875rem' }}>
                                         View Project <ArrowRight size={16} style={{ marginLeft: '0.5rem' }} />
-                                    </Link>
+                                    </a>
+                                    <a href="https://github.com/BeleRohit/voice-public-service-navigator" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ padding: '0.5rem 1.25rem', fontSize: '0.875rem', borderColor: 'transparent', backgroundColor: 'var(--bg-primary)' }}>
+                                        GitHub <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '0.5rem' }}><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    </a>
                                 </div>
                             </div>
                             <div style={{ backgroundColor: 'var(--border-soft)', minHeight: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center', order: 0 }}>
