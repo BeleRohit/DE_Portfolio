@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Moon, Sun } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const Navigation = () => {
@@ -20,6 +20,25 @@ const Navigation = () => {
     useEffect(() => {
         setMobileMenuOpen(false);
     }, [location]);
+
+    // Theme Management
+    const [theme, setTheme] = useState(
+        localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+    );
+
+    useEffect(() => {
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        localStorage.setItem('theme', theme);
+    }, [theme]);
+
+    const toggleTheme = () => {
+        setTheme(theme === 'dark' ? 'light' : 'dark');
+    };
 
     const navLinks = [
         { name: 'About', path: '/about' },
@@ -83,16 +102,31 @@ const Navigation = () => {
                         }}>
                             Open to Opportunities
                         </Link>
+
+                        <button
+                            onClick={toggleTheme}
+                            style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-body)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0.25rem' }}
+                            aria-label="Toggle Dark Mode"
+                        >
+                            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+                        </button>
                     </nav>
 
-                    {/* Mobile Toggle */}
-                    <button
-                        className="mobile-toggle"
-                        style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-accent)' }}
-                        onClick={() => setMobileMenuOpen(true)}
-                    >
-                        <Menu size={24} />
-                    </button>
+                    {/* Mobile Controls */}
+                    <div className="mobile-toggle" style={{ display: 'none', alignItems: 'center', gap: '1.5rem' }}>
+                        <button
+                            onClick={toggleTheme}
+                            style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-accent)', display: 'flex' }}
+                        >
+                            {theme === 'dark' ? <Sun size={22} /> : <Moon size={22} />}
+                        </button>
+                        <button
+                            style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-accent)', display: 'flex' }}
+                            onClick={() => setMobileMenuOpen(true)}
+                        >
+                            <Menu size={24} />
+                        </button>
+                    </div>
                 </div>
             </header>
 
