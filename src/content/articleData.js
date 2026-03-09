@@ -14,14 +14,8 @@ export const articleMetadata = {
     },
     "mediapipe-generative-art": {
         title: "Generative art with your hands: a MediaPipe tutorial",
-        date: "Coming Soon",
+        date: "January 2026",
         tag: "Creative Coding",
-        file: null
-    },
-    "ats-systems-revealed": {
-        title: "What ATS scoring systems actually look for (built one to find out)",
-        date: "Coming Soon",
-        tag: "LLMs / Career",
-        file: null
+        file: "Gen_hand_art.md"
     }
 }
